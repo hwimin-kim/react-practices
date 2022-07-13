@@ -26,5 +26,5 @@ devServer: {
 ##  4. 빌드
 ### [ex03]$ npm run build
 &nbsp;
-##  5. 애플리케이션 실행(테스트 서버 실행)
+##  5. 개발 서버 실행
 ### [ex03]$ npm start

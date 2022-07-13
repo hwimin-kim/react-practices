@@ -12,6 +12,7 @@ module: {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
     }]
+  }
 }
 ```
 &nbsp;
@@ -26,5 +27,5 @@ module: {
 ##  4. 빌드
 ### [ex04]$ npm run build
 &nbsp;
-##  5. 애플리케이션 실행(테스트 서버 실행)
+##  5. 개발 서버 실행
 ### [ex04]$ npm start
