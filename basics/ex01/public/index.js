@@ -1,9 +1,7 @@
 function App() {
-    const app = document.createElement('div');
-    app.textContent = 'Hello World';
-    return app;
+  const app = document.createElement("div");
+  app.textContent = "Hello World";
+  return app;
 }
 
-document
-    .getElementById('root')
-    .appendChild(App());
+document.getElementById("root").appendChild(App());
