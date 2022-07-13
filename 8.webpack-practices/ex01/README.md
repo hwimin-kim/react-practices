@@ -1,7 +1,7 @@
 # ex01: JS Module 번들링
 
 ##  1. 설치 패키지
-### [ex01]$ npm i -D webpack-cli express
+### [ex01]$ npm i -D webpack webpack-cli express
 ##  2. 스크립팅
 ```c
   "scripts": {
