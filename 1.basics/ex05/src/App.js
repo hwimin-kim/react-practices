@@ -5,6 +5,4 @@ function App() {
   return App;
 }
 
-rcc
-
 export { App };
