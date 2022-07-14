@@ -17,4 +17,4 @@
 &nbsp;
 ## 8. [참고1] webpack-practices *
 &nbsp;
-## 9. [참고2] bable-practices *
+## 9. [참고2] babel-practices *
