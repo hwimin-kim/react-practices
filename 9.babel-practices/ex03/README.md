@@ -1,7 +1,7 @@
 #     3. Babel Plugin: 변환규칙
-&nbsp;
 * ##  설치
   * ### [ex03]$ npm i -D @babel/core @babel/cli
+&nbsp;
 * ##  플러그인 적용
   * ### 블록 스코프 변수 플러그인(@babel/plugin-transform-block-scoping)
     * ### [ex03]$ npm i -D @babel/plugin-transform-block-scoping
