@@ -22,7 +22,7 @@
 ##  3. npm scripting
 &nbsp;
 ##  4. 실행
-### [ex01]$ npm run debug src=(01|02|03|04|05|06|07|08)
+### [ex01]$ npm run debug src=(01|02|03|04)
 &nbsp;
 ##  5. 빌드(번들링)
 ### [ex01]$ npm run build
