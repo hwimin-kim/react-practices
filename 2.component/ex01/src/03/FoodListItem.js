@@ -2,9 +2,7 @@ import React from 'react';
 
 function FoodListItem({name, quantity}) {
     return (
-        <div>
-            <li>{name}: {quantity}</li>
-        </div>
+        <li>{name}: {quantity}</li>
     );
 }
 
