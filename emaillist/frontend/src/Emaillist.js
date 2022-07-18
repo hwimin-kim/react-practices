@@ -11,7 +11,7 @@ function Emaillist({emails}) {
                         key={email.no} 
                         firstName={email.firstName} 
                         lastName={email.lastName} 
-                        email={email.firstName}
+                        email={email.email}
                     />
                 )
             })}

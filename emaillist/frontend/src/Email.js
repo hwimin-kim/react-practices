@@ -3,10 +3,10 @@ import styles from './assets/scss/Email.scss';
 
 function Email({firstName, lastName, email}) {
     return (
-        <li styles={styles.Email}>
-            {firstName + lastName}
-            <br/>
-            {email}
+        <li className={styles.Email}>
+            <h4>{`${firstName} ${lastName}`}</h4>
+            <span>{email}</span>
+            <a href=''></a>
         </li>
     );
 }
