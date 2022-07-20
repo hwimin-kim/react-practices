@@ -1,12 +1,11 @@
 import React from 'react';
-import cards from './assets/json/data.json';
+import Kanbanboard from './Kanbanboard';
 
 function App() {
-  console.log(cards);
-
+  
   return (
     <div id={'App'}>
-      Kanbanboard
+      <Kanbanboard />
     </div>
   );
 }
