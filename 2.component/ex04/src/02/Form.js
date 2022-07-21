@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBell, faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons'
 import './assets/Form.css';
 
 export default function Form() {
@@ -6,7 +8,7 @@ export default function Form() {
       name: "",
       email: "",
       password: "",
-      gender: "",
+      gender: "male",
       textarea: "",
       check: "yes",
       valid: false
@@ -14,7 +16,6 @@ export default function Form() {
 
     const onChange = (e) => {
       const {name, value} = e.target;
-      console.log(name, value);
 
       setInputs({
         ...inputs,
@@ -51,7 +52,12 @@ export default function Form() {
               type="text" 
               value={ inputs.email }
               onChange={onChangeEmailInput}/>
-            { inputs.valid ? 'ok' : 'no'}
+            { inputs.email === '' ?
+                null :
+                inputs.valid ?
+                  <FontAwesomeIcon icon={faCheckCircle} style={{fontSize: 16, color: 'skyblue'}} /> : 
+                  <FontAwesomeIcon icon={faTimesCircle} style={{fontSize: 16, color: 'hotpink'}} /> 
+            }
             <label htmlFor="password">패스워드</label>
             <input 
               id="password" 
@@ -62,8 +68,20 @@ export default function Form() {
             
             <fieldset>
                 <legend>성별</legend>
-                <label>여</label> <input type="radio" name="gender" value={ inputs.gender } defaultChecked={ true } />
-                <label>남</label> <input type="radio" name="gender" value={ inputs.gender } defaultChecked={ false } />
+                <label>여</label> 
+                <input 
+                  type="radio" 
+                  name="gender" 
+                  value={ "female" } 
+                  checked={ inputs.gender === 'female' } 
+                  onChange={onChange} />
+                <label>남</label> 
+                <input 
+                  type="radio" 
+                  name="gender" 
+                  value={ "male" } 
+                  checked={ inputs.gender === 'male' } 
+                  onChange={onChange} />
             </fieldset>
 
             <label htmlFor="birthYear">생년</label>
