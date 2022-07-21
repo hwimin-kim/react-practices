@@ -1,10 +1,13 @@
 import React from 'react';
+import Card from './Card.js';
+import styles from './assets/scss/CardList.scss';
 
 function CardList({title, cards}) {
-  console.log(title, cards);
+
   return (
-    <div className={'CardList'}>
+    <div className={styles.CardList}>
       <h1>{title}</h1>
+      {cards.map(card => <Card key={card.no} card={card}/>)}
     </div>
   );
 }
