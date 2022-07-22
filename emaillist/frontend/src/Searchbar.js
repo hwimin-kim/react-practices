@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './assets/scss/Searchbar.scss';
 
-function Searchbar() {
-    return (
-        <div className={styles.Searchbar}>
-            찾기: <input type='text' placeholder='search'/>
-        </div>
-    );
+function Searchbar({onChange}) {
+  return (
+    <div className={styles.Searchbar}>
+      <input 
+        type='text' 
+        placeholder='search'
+        onChange={e => onChange(e.target.value)} />
+    </div>
+  );
 }
 
 export default Searchbar;
