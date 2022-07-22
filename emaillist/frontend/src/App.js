@@ -38,7 +38,7 @@ function App() {
     <div id={styles['App']}>
       <RegisterForm onSubmit={notifyEmaillAdd} />
       <Searchbar onChange={notifyKeywordChanged} />
-      <Emaillist emails={emails}/>
+      <Emaillist emails={emails} notifyEmailDelete={notifyEmailDelete} />
     </div>
   );
 }
