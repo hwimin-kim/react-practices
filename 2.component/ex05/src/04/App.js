@@ -16,21 +16,27 @@ export default function App() {
   }
 
   const [clock, setClock] = useState(updateClock())
+  const [ticks, setTicks] = useState(0);
 
   useEffect(() => {
-    const intervalID = setInterval(() =>
-    setClock(updateClock()), 1000);
+    const intervalID = setInterval(() =>{
+    setClock(updateClock());
+    setTicks((prevTicks => prevTicks + 1))
+    }, 1000);
     return () => {
       clearInterval(intervalID);
     }
   }, [updateClock])
 
   return (
-    <Clock
-        message={'ex05: useEffect Hook example'}
-        hours={clock.hours}
-        minutes={clock.minutes}
-        seconds={clock.seconds} 
-        session={clock.session} />
+    <>
+      <span>{ticks}</span>
+      <Clock
+          message={'ex05: useEffect Hook example'}
+          hours={clock.hours}
+          minutes={clock.minutes}
+          seconds={clock.seconds} 
+          session={clock.session} />
+    </>
   );
 }
