@@ -5,27 +5,21 @@ import Clock from './Clock';
 
 
 export default function App() {
-  const today = new Date();
-
-  const [clock, setClock] = useState({
-    hours: today.getHours() % 12 ? today.getHours() % 12 : 12,
-    minutes: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
-    seconds: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds(),
-    session: today.getHours() >= 12 ? 'pm' : 'am'
-  })
-
   const updateClock = () => {
-    setClock({
+  const today = new Date();
+    return {
       hours: today.getHours() % 12 ? today.getHours() % 12 : 12,
       minutes: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
       seconds: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds(),
       session: today.getHours() >= 12 ? 'pm' : 'am'
-    });
+    };
   }
+
+  const [clock, setClock] = useState(updateClock())
 
   useEffect(() => {
     const intervalID = setInterval(() =>
-    updateClock(), 1000);
+    setClock(updateClock()), 1000);
     return () => {
       clearInterval(intervalID);
     }

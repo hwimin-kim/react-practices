@@ -5,14 +5,7 @@ import Clock from './Clock';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    const today = new Date();
-
-    this.state = {
-      hours: today.getHours() % 12 ? today.getHours() % 12 : 12,
-      minutes: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
-      seconds: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds(),
-      session: today.getHours() >= 12 ? 'pm' : 'am'
-    }
+    this.state = this.updateClock();
   }
 
   render() {
@@ -30,16 +23,16 @@ export default class App extends Component {
 
   componentDidMount() {
     this.intervalID = setInterval(() =>
-    this.updateClock(), 1000);
+    this.setState(this.updateClock()), 1000);
   }
   
-  updateClock(){
+  updateClock() {
     const today = new Date();
-    this.setState({
+    return {
       hours: today.getHours() % 12 ? today.getHours() % 12 : 12,
       minutes: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
       seconds: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds(),
       session: today.getHours() >= 12 ? 'pm' : 'am'
-    });
+    };
   }
 }
