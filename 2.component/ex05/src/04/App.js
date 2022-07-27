@@ -21,12 +21,15 @@ export default function App() {
   useEffect(() => {
     const intervalID = setInterval(() =>{
     setClock(updateClock());
+    //setTicks(ticks +1);
+    console.log(ticks)
+    //setTicks((ticks => ticks + 1))
     setTicks((prevTicks => prevTicks + 1))
     }, 1000);
     return () => {
       clearInterval(intervalID);
     }
-  }, [updateClock])
+  }, [ticks, clock])
 
   return (
     <>
