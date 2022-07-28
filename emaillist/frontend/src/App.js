@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import RegisterForm from './RegisterForm';
 import Searchbar from './Searchbar';
 import Emaillist from './Emaillist';
@@ -6,7 +6,7 @@ import styles from './assets/scss/App.scss';
 import data from './assets/json/data.json';
 
 function App() {
-  const [emails, setEmails] = useState(data);
+  const [emails, setEmails] = useState([]);
 
   const notifyEmailDelete = (no) => {
     console.log(no);
@@ -33,6 +33,35 @@ function App() {
     console.log(result);
     setEmails(result);
   }
+
+  useEffect(async () => {
+    try {
+      const response  = await fetch('/api', {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: null
+      });
+
+      if(!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
+      }
+
+      const json = await response.json();
+      if(json.result !== 'success') {
+        throw new Error(`${json.result} ${json.message}`)
+      }
+
+      console.log(json);
+      //setEmails(json.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    return ;
+  }, [emails]);
 
   return (
     <div id={styles['App']}>
