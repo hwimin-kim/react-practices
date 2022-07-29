@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './assets/scss/Emaillist.scss';
 import Email from './Email';
 
-function Emaillist({emails, notifyEmailDelete}) {
+function Emaillist({emails, emailDelete}) {
     return (
         <ul className={styles.Emaillist}>
             {emails.map(email => {
@@ -10,7 +10,7 @@ function Emaillist({emails, notifyEmailDelete}) {
                     <Email 
                         key={email.no} 
                         data={email}
-                        notifyEmailDelete={notifyEmailDelete}
+                        emailDelete={emailDelete}
                     />
                 )
             })}

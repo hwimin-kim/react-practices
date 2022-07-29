@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './assets/scss/Email.scss';
 
-function Email({data, notifyEmailDelete}) {
+function Email({data, emailDelete}) {
   const {no, firstName, lastName, email} = data;
     return (
         <li className={styles.Email}>
@@ -12,7 +12,7 @@ function Email({data, notifyEmailDelete}) {
               onClick={
                 e => {
                   e.preventDefault(); 
-                  notifyEmailDelete(no)
+                  emailDelete(no)
                 }
               }>
             </a>
