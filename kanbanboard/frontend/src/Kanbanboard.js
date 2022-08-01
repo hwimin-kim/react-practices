@@ -14,3 +14,8 @@ function KanbanBoard() {
 }
 
 export default KanbanBoard;
+
+// 처음엔 카드만
+// -> 눌렀을때 task 가져요기
+
+// react add-one 쓰기
