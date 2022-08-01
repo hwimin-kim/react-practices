@@ -18,9 +18,8 @@ export default function Guestbook() {
     });
 
     const deleteMessage = function (no) {
-        /* API 통신 */
-            setMessages(messages.filter((message) => message.no != no));
-        }
+        setMessages(messages.filter((message) => message.no != no));
+    }
 
     const addMessage = async function (message) {
             const response = await fetch('/api/guestbook', {
@@ -42,8 +41,7 @@ export default function Guestbook() {
             }
 
             setMessages([json.data, ...messages]);
-        }
-    
+    }
 
     const fetchMessage = async function () {
         console.log('[ex01. Enter]', ' Fetching');

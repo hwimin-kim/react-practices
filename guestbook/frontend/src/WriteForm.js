@@ -21,6 +21,7 @@ export default function WriteForm({callback}) {
                     return res;
                 }, {});
 
+
             refForm.current.reset();
             callback(newMessage);
         } catch (err) {
