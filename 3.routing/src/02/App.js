@@ -14,26 +14,37 @@ export default function App() {
         console.log(url);
 
         window.history.pushState({page: url}, e.target.text, url);
+        setRoute({...route, page: url});
     }
 
-    const router = function () {
-        let component = null;
-        switch (route.page) {
-            case '/':
-                component = <Main/>;
-                break;
-            case '/gallery':
-                component = <Gallery/>;
-                break;
-            case '/guestbook':
-                component = <Guestbook/>;
-                break;
-        }
+    useEffect(() => {
+      const handlePopState = (e) => {
+        setRoute(() => e.state)
+      }
 
-        return component;
-    };
+      window.addEventListener('popstate', handlePopState)
+
+      return () => {
+        window.removeEventListener('popstate',handlePopState);
+      }
+    }, [])
 
     return (
+      <>
+        {
+          (() => {
+            switch (route.page) {
+                case '/':
+                    return <Main/>;
+                case '/gallery':
+                  return <Gallery/>;
+                case '/guestbook':
+                  return <Guestbook/>;
+                default:
+                  return null;
+            }
+          })()
+        }
         <div>
             <ul>
                 <li><a href={'/'} onClick={handleLinkClick}>[Main]</a></li>
@@ -41,5 +52,6 @@ export default function App() {
                 <li><a href={'/guestbook'} onClick={handleLinkClick}>[Guestbook]</a></li>
             </ul>
         </div>
+      </>
     )
 }
