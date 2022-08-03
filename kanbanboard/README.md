@@ -1,4 +1,17 @@
 # backend
+## 테스트
+eclipse Ctrl+F11 (IDE Run)
+
+## 빌드
+```sh
+$ mvn -f kanbanboard/backend clean package
+```
+  * ### 결과: kanbanboard/backend/target/kanbanboard07.jar
+  * ### 실행
+    ```
+      $ java -D spring.profiles.active=production -jar kanbanboard/backend/target/kanbanboard07.jar
+    ```
+
 # frontend
 ##  1.설치
 ``` sh
@@ -21,6 +34,7 @@ $ npm i react react-dom prop-types react-addons-update react-router react-router
 ```sh
 $ npm start
 ```
+
 ##  5. 빌드
 ```sh
 $ npm run build
