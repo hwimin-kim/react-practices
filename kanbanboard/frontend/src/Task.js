@@ -1,21 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './assets/scss/Task.scss';
 
-function Task({task}) {
-  const {name, done} = task
-  const [checkbox, setCheckbox] = useState(done);
-  
-  const onChangeCheckbox = () => {
-    setCheckbox(prevCheckbox => !prevCheckbox)
-  }
-
-  return (
-    <li className={styles.TaskList__Task}>
-      <input type='checkbox' checked={checkbox} onChange={onChangeCheckbox} />
-      {name}
-      <a href='#' className={styles.TaskList__Task__remove}></a>
-    </li>
-  );
+export default function Task({no, name, done, callback}) {
+    return (
+        <li className={styles.Task}>
+            <input 
+                type='checkbox' 
+                checked={done === 'Y'}
+                onChange={e => {
+                    callback(no, e.target.checked ? 'Y' : 'N');
+                }}/>
+            {name}
+            <a href='#' className={styles.Task__remove}/>
+        </li>
+    );
 }
 
-export default Task;
+Task.propTypes = {
+    name: PropTypes.string.isRequired
+}
