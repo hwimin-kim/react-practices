@@ -4,7 +4,7 @@ eclipse Ctrl+F11 (IDE Run)
 
 ## 빌드
 ```sh
-$ mvn -f kanbanboard/backend clean package
+$ mvn -f kanbanboard/backend exec:exec clean package
 ```
   * ### 결과: kanbanboard/backend/target/kanbanboard07.jar
   * ### 실행
