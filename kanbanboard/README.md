@@ -37,5 +37,6 @@ $ npm start
 
 ##  5. 빌드
 ```sh
+$ npm i
 $ npm run build
 ```
