@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import CardList from "./CardList";
-import styles from './assets/css/KabanBoard.css';
+import styles from './assets/scss/KanbanBoard.scss';
 
 export default function KanbanBoard() {
     const [cards, setCards] = useState([]);
