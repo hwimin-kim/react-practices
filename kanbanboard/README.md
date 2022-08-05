@@ -11,7 +11,35 @@ $ mvn -f kanbanboard/backend exec:exec clean package
     ```
       $ java -Dspring.profiles.active=production -jar kanbanboard/backend/target/kanbanboard07.jar
     ```
-
+##  ssh 연결(ssh key 사용하기)
+  * ### key 생성하기
+```sh
+$ ssh-keygen -t rsa -b 2048 -m PEM -C "자기이메일@gmail.com"
+```
+  * ### 생성확인
+    * ### id_rsa: private key
+    * ### id_rsa.pub: public key
+  * ### 공개키(id_rsa.pub) 서버 설치
+    ```
+    # mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+    ```
+  * ### ssh(client) 연결
+    ```
+    $ ssh -i /d/douzone2022/mykey.pem root@192.168.10.40
+    ```
+  * ### ssh 연결 환경 설정(~/.ssh/environment)
+    ```
+    # vi ~/.ssh/environment
+    ``` 
+    ```
+    /usr/local/douzone/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/douzone/java/bin:/usr/local/douzone/maven/bin:/usr/local/douzone/mariadb/bin:/usr/local/douzone/node/bin:/root/bin
+    ```
+  * ### jenkins ssh server 설정
+    * ### Publish over SSH 플러그인 설치
+    * ### Publish over SSH 플러그인으로 ssh server 등록하기
+    * ### project 빌드 후 조치(build-post action) 설정
+      * ### proj-apps.jar: transfer
+      * ### launch.sh: transfer + execution
 # frontend
 ##  1.설치
 ``` sh
