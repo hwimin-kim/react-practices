@@ -34,6 +34,16 @@ $ ssh-keygen -t rsa -b 2048 -m PEM -C "자기이메일@gmail.com"
     ```
     /usr/local/douzone/git/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/douzone/java/bin:/usr/local/douzone/maven/bin:/usr/local/douzone/mariadb/bin:/usr/local/douzone/node/bin:/root/bin
     ```
+    ```
+    # vi /etc/ssh/sshd_config
+
+    ```
+    ```
+    PermiuUserEvironment yes
+    ```
+    ```
+    # systemctl restart sshd
+    ```
   * ### jenkins ssh server 설정
     * ### Publish over SSH 플러그인 설치
     * ### Publish over SSH 플러그인으로 ssh server 등록하기
