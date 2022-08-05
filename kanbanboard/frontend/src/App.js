@@ -6,6 +6,7 @@ function App() {
   
   return (
     <div id={'App'} className={styles.App}>
+      <h1>Test~Test~Test~</h1>
       <Kanbanboard />
     </div>
   );
